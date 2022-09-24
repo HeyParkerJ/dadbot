@@ -6,4 +6,4 @@ services:
         container_name: dadbot
         restart: unless-stopped
         environment: 
-            - TOKEN=${token}
+            - DISCORD_TOKEN=${DISCORD_TOKEN}

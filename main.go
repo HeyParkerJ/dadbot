@@ -70,7 +70,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	fmt.Println(m.Content)
 
 	// If the message is "ping" reply with "Pong!"
-	tiltMatched, err := regexp.MatchString(`.tilt`, m.Content)
+	tiltMatched, err := regexp.MatchString(`tilt`, m.Content)
 
 	if err != nil {
 		fmt.Println("Error regexp parsing message:", m.Content, err)

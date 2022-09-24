@@ -7,6 +7,7 @@ COPY go.mod ./
 COPY go.sum ./
 
 # ENV DISCORD_TOKEN=${ DISCORD_TOKEN }
+ARG DISCORD_TOKEN
 
 RUN go mod download
 

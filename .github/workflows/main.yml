@@ -50,6 +50,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: dadbot
+          service: dadbot-service
           cluster: arn:aws:ecs:us-west-2:648295097384:cluster/dadbot
           wait-for-service-stability: true

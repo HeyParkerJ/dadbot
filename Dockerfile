@@ -7,13 +7,15 @@ COPY go.mod ./
 COPY go.sum ./
 
 # ENV DISCORD_TOKEN=${ DISCORD_TOKEN }
-ARG DISCORD_TOKEN
+# ARG DISCORD_TOKEN
 
 RUN go mod download
 
 COPY *.go ./
 
 RUN go build -o ./bin/dadbot
+
+RUN --mount=type=secret,id=DISCORD_TOKEN
 
 EXPOSE 8080
 

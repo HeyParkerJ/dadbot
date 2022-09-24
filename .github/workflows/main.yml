@@ -32,6 +32,7 @@ jobs:
           # IMAGE_TAG: ${{ steps.increment-git-tag.outputs.git-tag }}
         run: |
           echo "Info:"
+          echo "Discord token: $DISCORD_TOKEN"
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
           --build-arg DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }} .

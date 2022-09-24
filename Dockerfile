@@ -6,7 +6,7 @@ WORKDIR /app
 COPY go.mod ./
 COPY go.sum ./
 
-ENV DISCORD_TOKEN=$DISCORD_TOKEN
+# ENV DISCORD_TOKEN=${ DISCORD_TOKEN }
 
 RUN go mod download
 
@@ -16,5 +16,5 @@ RUN go build -o ./bin/dadbot
 
 EXPOSE 8080
 
-ENTRYPOINT ["./bin/dadbot", "-t", "$DISCORD_TOKEN"]
-CMD ["-t", $DISCORD_TOKEN]
+ENTRYPOINT "./bin/dadbot" "-t" "$DISCORD_TOKEN"
+# CMD ["-t", $DISCORD_TOKEN]

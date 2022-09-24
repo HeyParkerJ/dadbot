@@ -1,15 +1,18 @@
-FROM golang:1.19.1
+# syntax=docker/dockerfile:1
+
+FROM golang:1.19.1-alpine
 
 WORKDIR /app
-COPY ./go.mod ./
-COPY ./go.sum ./
+COPY go.mod ./
+COPY go.sum ./
 
 RUN go mod download
 
-COPY ./main.go ./
+COPY *.go ./
 
-RUN go build -o ./dadbot
+RUN go build -o ./bin/dadbot
 
-EXPOSE 8080
+# EXPOSE 8080
 
-ENTRYPOINT ["/dadbot", "-t", $DISCORD_TOKEN]
+ENTRYPOINT ["./bin/dadbot"]
+CMD ["-t", $DISCORD_TOKEN]

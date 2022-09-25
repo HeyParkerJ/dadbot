@@ -18,4 +18,3 @@ RUN go build -o ./bin/dadbot
 EXPOSE 8080
 
 ENTRYPOINT "./bin/dadbot" "-t" "$DISCORD_TOKEN"
-# CMD ["-t", $DISCORD_TOKEN]
